@@ -5,10 +5,18 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/server.js"
   },
   "author": "emily",
   "license": "ISC",
   "keywords": [
     "emily"
-  ]
+  ],
+  "devDependencies": {
+    "jasmine": "^3.0.0",
+    "request": "^2.83.0"
+  },
+  "dependencies": {
+    "express": "^4.16.2"
+  }
 }
