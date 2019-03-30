@@ -1,0 +1,14 @@
+{
+  "name": "bloccit",
+  "version": "1.0.0",
+  "description": " Reddit-like application for users to discuss and share content",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "emily",
+  "license": "ISC",
+  "keywords": [
+    "emily"
+  ]
+}
