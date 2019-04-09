@@ -4,7 +4,11 @@
   "description": " Reddit-like application for users to discuss and share content",
   "main": "index.js",
   "scripts": {
+<<<<<<< HEAD
     "test": "echo \"Error: no test specified\" && exit 1",
+=======
+   "test": "echo \"Error: no test specified\" && exit 1",
+>>>>>>> 95ac886751bbcbe371733982e7962661859e7d4c
     "start": "node src/server.js"
   },
   "author": "emily",
