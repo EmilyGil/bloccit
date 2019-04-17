@@ -87,7 +87,7 @@ show(req, res, next){
               topicQueries.updateTopic(req, req.body, (err, topic) => {
           //#2      
                 if(err || topic == null){
-                  res.redirect(404, `/topics/${req.params.id}/edit`);
+                  res.redirect(401, `/topics/${req.params.id}/edit`);
                 } else {
                   res.redirect(`/topics/${req.params.id}`);
                 }
