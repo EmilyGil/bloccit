@@ -1,5 +1,7 @@
 const sequelize = require("../../src/db/models/index").sequelize;
 const Topic = require("../../src/db/models").Topic;
+const User = require("../../src/db/models").User;
+
 
 describe("Post", () => {
 

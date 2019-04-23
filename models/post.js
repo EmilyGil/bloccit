@@ -15,19 +15,27 @@
      },
 
 //#2
-     topicId: {
-       type: DataTypes.INTEGER,
-       allowNull: false
-     }
-   }, {});
-   Post.associate = function(models) {
-     // associations can be defined here
+topicId: {
+  type: DataTypes.INTEGER,
+  allowNull: false
 
-//#3
-     Post.belongsTo(models.Topic, {
-       foreignKey: "topicId",
-       onDelete: "CASCADE"
-     });
-   };
-   return Post;
- };
+},
+userId: {
+  type: DataTypes.INTEGER,
+  allowNull: false
+}
+
+},{});
+Post.associate = function(models) {
+  // associations can be defined here
+  Post.belongsTo(models.Topic, {
+    foreignKey: "topicId",
+    onDelete: "CASCADE"
+  });
+  Post.belongsTo(models.User, {
+    foreignKey: "userId",
+    onDelete: "CASCADE"
+  });
+};
+return Post;
+};

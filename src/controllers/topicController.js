@@ -56,7 +56,7 @@ show(req, res, next){
                  }
                });
              },
-             destroy(req, res, next){
+destroy(req, res, next){
               topicQueries.deleteTopic(req, (err, topic) => {
                 if(err){
                   res.redirect(err, `/topics/${req.params.id}`)
@@ -66,7 +66,7 @@ show(req, res, next){
               });
             },
   
-      edit(req, res, next){
+edit(req, res, next){
               topicQueries.getTopic(req.params.id, (err, topic) => {
                 if(err || topic == null){
                   res.redirect(404, "/");
@@ -82,17 +82,15 @@ show(req, res, next){
               });
             },
   
-        update(req, res, next){
-          //#1
-              topicQueries.updateTopic(req, req.body, (err, topic) => {
-          //#2      
-                if(err || topic == null){
-                  res.redirect(401, `/topics/${req.params.id}/edit`);
-                } else {
-                  res.redirect(`/topics/${req.params.id}`);
+update(req, res, next){
+
+              // #1
+                  topicQueries.updateTopic(req, req.body, (err, topic) => {
+                    if(err || topic == null){
+                      res.redirect(401, `/topics/${req.params.id}/edit`);
+                    } else {
+                      res.redirect(`/topics/${req.params.id}`);
+                    }
+                  });
                 }
-              });
-            }
-  
-    }
-  
+              }
