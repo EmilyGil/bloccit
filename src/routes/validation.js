@@ -42,6 +42,21 @@ module.exports = {
       }
     },
     
+    validateComments(req, res, next) {
+      if(req.method === "POST") {
+        req.checkBody("body", "must not be empty"). notEmpty();
+      }
+ 
+      const errors = req.validationErrors();
+ 
+      if (errors) {
+        req.flash("error", errors);
+        return res.redirect(req.headers.referer);
+      } else {
+        return next()
+      }
+    },
+    
     validateTopics(req, res, next) {
         if(req.method === "POST") {
           req.checkBody("title", "must be at least 5 characters in length").isLength({min: 5});
