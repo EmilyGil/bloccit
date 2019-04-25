@@ -40,10 +40,30 @@ Post.associate = function(models) {
     foreignKey: "postId",
     as: "comments"
   });
+  Post.hasMany(models.Favorite, {
+    foreignKey: "postId",
+    as: "favorites"
+  });
+
+  Post.afterCreate((post, callback) => {
+    return models.Favorite.create({
+      userId: post.userId,
+      postId: post.id
+    });
+  });
+  
+  Post.afterCreate((post, callback) => {
+    return models.Vote.create({
+      userId: post.userId,
+      postId: post.id,
+      value: 1 
+    });
+  });
 
   Post.hasMany(models.Vote, {
     foreignKey: "postId",
     as: "votes"
+  
   });
   Post.prototype.getPoints = function(){
 
@@ -54,6 +74,9 @@ Post.associate = function(models) {
         return this.votes
           .map((v) => { return v.value })
           .reduce((prev, next) => { return prev + next });
+      };
+  Post.prototype.getFavoriteFor = function(userId){
+        return this.favorites.find((favorite) => { return favorite.userId == userId });
       };
 };
 return Post;
