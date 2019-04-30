@@ -46,10 +46,7 @@ module.exports = {
              .then((comments) => {
     
                result["comments"] = comments;
-               callback(null, result);
-             })
-             .catch((err) => {
-               callback(err);
+               
              })
            })
          }
